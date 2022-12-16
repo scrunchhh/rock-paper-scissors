@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+.body {
+    display: flex;
+    height: 90vh;
+    width: 90vw;
+    border: 2px solid red;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3vh;
+}
+
+.body div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid blue;
+    gap: 10vw;
+    flex: 1;
+}
+
+.roll button {
+    width: 400px;
+    height: 200px;
+}
+
+.body {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options button {
+    width: 200px;
+    height: 200px;
+}
+
+button {
+    background-color: white;
+    border: black 15px solid;
+    border-radius: 25px;
+    font-size: 40px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.buttonSelected {
+    scale: 1.1;
+    background-color: aquamarine;
+}
