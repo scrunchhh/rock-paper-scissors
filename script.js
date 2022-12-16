@@ -4,19 +4,20 @@ function getRndInteger(min, max) {
 
 function selectButton(e) {
     choice = e.target.className;
-    let rockClass = buttons[0]
-    let paperClass = buttons[1]
-    let scissorsClass = buttons[2]
-    
-    paperClass.classList.remove('buttonSelected')
-    scissorsClass.classList.remove('buttonSelected')
-    rockClass.classList.remove('buttonSelected')
+
+    buttons[0].classList.remove('buttonSelected')
+    buttons[1].classList.remove('buttonSelected')
+    buttons[2].classList.remove('buttonSelected')
 
     e.target.classList.toggle('buttonSelected')
-    
+}
+
+function reset() {
+    optionDiv.setAttribute('style', 'width: 50%;')
 }
 
 function rockPaperScissors() {
+    start.setAttribute('style', 'scale: 1.1; background-color: lightgreen;')
     let computerChoice = getRndInteger(1, 4)
     console.log(choice)
     if (choice == 'rock') {
@@ -55,19 +56,26 @@ function rockPaperScissors() {
         }
     }
 
+    choice = ''
+    buttons[0].classList.remove('buttonSelected')
+    buttons[1].classList.remove('buttonSelected')
+    buttons[2].classList.remove('buttonSelected')
     score.textContent = `Player ${playerScore}:${computerScore} Computer`
-    
 }
 
 let computerScore = 0
 let playerScore = 0
 let choice = ''
-
 const buttons = Array.from(document.querySelectorAll('.options button'))
-buttons.forEach(button => button.addEventListener('click', selectButton))
-
+const optionDiv = document.querySelector('.options')
 const score = document.querySelector('.scoreContainer h1')
-score.textContent = `Player ${playerScore}:${computerScore} Computer`
 const start = document.querySelector('#rollBtn')
 
+//onclick animation for option buttons
+buttons.forEach(button => button.addEventListener('click', selectButton))
+
+//scoreboard
+score.textContent = `Player ${playerScore}:${computerScore} Computer`
+
+//play button
 start.addEventListener('click', rockPaperScissors)
